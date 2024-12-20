@@ -1,6 +1,5 @@
-#include "worker_pool.hpp"
 #include <iostream>
-#include "thread_safe_iostream.hpp"
+#include "../includes/libftpp.hpp" 
 
 int main() {
     WorkerPool pool(4);

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <thread>
-#include "thread_safe_iostream.hpp"
+#include "../includes/libftpp.hpp" 
 
 void printNumbers(const std::string& p_prefix) {
     threadSafeCout.setPrefix(p_prefix);

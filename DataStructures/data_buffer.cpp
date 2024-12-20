@@ -1,5 +1,4 @@
-#include "DataStructure.hpp"
-
+#include "../includes/libftpp.hpp"
 
 DataBuffer& DataBuffer::operator<<(const std::string& str) {
     size_t length = str.size();

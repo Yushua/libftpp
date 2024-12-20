@@ -1,5 +1,5 @@
 #include <iostream>
-#include "singleton.hpp"
+#include "../includes/libftpp.hpp" 
 
 class MyClass {
 public:

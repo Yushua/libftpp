@@ -1,5 +1,4 @@
-#include <iostream>
-#include <cmath>
+#include "../includes/libftpp.hpp" 
 #include "perlin_noise_2D.hpp"
 
 int main() {

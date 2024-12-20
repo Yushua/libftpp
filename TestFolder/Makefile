@@ -1,5 +1,3 @@
-# TestFolder/Makefile
-
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror
 
@@ -10,13 +8,16 @@ LIB_NAME = libftpp.a
 # Include directories
 INC_DIRS = -I../includes -I../DataStructures
 
-# Output binary (the test executable)
-OUT = main_pool_test
+# TESTNAME is set dynamically or defaults to 'pool'
+TESTNAME ?= pool
 
-# Test source files (you can add others here)
-SRCS = main_pool.cpp
+MAINADD = main_
+TESTADDITION = _test
 
-# Object files
+OUT = $(MAINADD)$(TESTNAME)$(TESTADDITION)
+
+# Source and object files depend on TESTNAME
+SRCS = $(MAINADD)$(TESTNAME).cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 # Default target
@@ -38,3 +39,8 @@ fclean: clean
 
 # Rebuild
 re: fclean all
+
+# Run the dynamically created executable
+run: $(OUT)
+	./$(OUT)
+	rm -f $(OBJS) $(OUT)
