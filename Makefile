@@ -11,7 +11,13 @@ SRCS = \
 OBJS = $(SRCS:%.cpp=%.o)
 
 # Include directories
-INC_DIRS = -I./includes -I./DataStructures
+INC_DIRS = -I./includes
+			-I./DataStructures
+			-I./DesignPatterns
+			-I./IOStream
+			-I./Thread
+			-I./Network
+			-I./Mathematics
 
 # Default target to build the static library
 all: $(LIB_NAME)
