@@ -2,10 +2,10 @@
 
 # List of TESTNAMEs to run
 TEST_NAMES=(
-    pool
-    data_buffer
+    # pool
+    # data_buffer
 
-    # memento
+    memento
     # observer
     # singleton
     # state_machine
