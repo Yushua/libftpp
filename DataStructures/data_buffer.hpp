@@ -1,19 +1,18 @@
 #ifndef DATA_BUFFER_HPP
 #define DATA_BUFFER_HPP
 
-#include <vector>      // To store data as a byte array
-#include <string>      // For string support
-#include <stdexcept>   // For throwing exceptions
-#include <type_traits> // To check if types are trivially copyable
-#include <cstring>     // For memory operations
-#include <iostream>    // For debugging (optional)
+#include <vector>
+#include <string>
+#include <stdexcept>
+#include <type_traits>
+#include <cstring>
+#include <iostream>
 
 class DataBuffer {
 private:
-    // Stores the raw byte data
+
     std::vector<char> buffer;
 
-    // Tracks the current read position during deserialization
     size_t readPos = 0;
 
 public:
@@ -54,4 +53,4 @@ public:
     size_t size() const;
 };
 
-#endif // DATA_BUFFER_HPP
+#endif
