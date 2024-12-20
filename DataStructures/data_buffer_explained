@@ -1,0 +1,49 @@
+The goal of this assignment is to create a polymorphic container, DataBuffer, capable of storing any kind of data in a serialized format (bytes) and allowing for its deserialization. This approach is common in systems where data needs to be stored or transmitted efficiently, regardless of its type. Here's a detailed breakdown:
+
+Key Objectives
+1. Polymorphic Container (DataBuffer):
+A container that can handle different data types in a uniform way.
+Stores data in a raw byte format (std::vector<char>), which allows for compact and flexible data storage.
+2. Serialization and Deserialization:
+Serialization: Convert complex objects (e.g., int, std::string, or user-defined types like TestObject) into a format suitable for storage or transmission.
+Deserialization: Convert the serialized format back into the original object, maintaining its state and type.
+3. Stream-like Operators:
+Implement the << operator for serialization (writing data to the buffer).
+Implement the >> operator for deserialization (reading data from the buffer).
+These operators mimic the functionality of standard input/output streams in C++.
+4. Support for Custom Data Types:
+By overloading the << and >> operators in user-defined classes (TestObject), custom types can also be serialized/deserialized using DataBuffer.
+Features of DataBuffer
+Serialization (<<):
+
+Converts data into a format suitable for storage in std::vector<char>.
+For trivial types (int, float), uses std::memcpy to directly copy the data into the buffer.
+For non-trivial types (std::string), first stores the size (length of the string), followed by its characters.
+Deserialization (>>):
+
+Reads data from the std::vector<char> and reconstructs the original object.
+For trivial types, copies bytes back into the variable.
+For non-trivial types, reads the size of the data (e.g., length of a string) and then retrieves the actual content.
+Safety:
+
+If a deserialization operation would read beyond the buffer’s limit, an exception is thrown to prevent undefined behavior.
+The clear() function resets the buffer to an empty state.
+User-Defined Type Support
+The test file provides an example with a user-defined class, TestObject. Here’s how TestObject integrates with DataBuffer:
+
+Serialization of TestObject:
+
+The << operator for DataBuffer is overloaded to write TestObject's members (int x and std::string y) into the buffer.
+This involves serializing each member individually.
+Deserialization of TestObject:
+
+The >> operator is overloaded to read data from DataBuffer and reconstruct TestObject by extracting its members in the same order they were serialized.
+This allows DataBuffer to handle objects of TestObject seamlessly.
+
+Purpose of the Test Program
+The test program validates the functionality of DataBuffer by:
+
+Creating a DataBuffer object to store serialized data.
+Serializing two TestObject instances into the buffer.
+Deserializing these objects back and verifying that the data is consistent with the original.
+Testing exception handling by attempting to deserialize beyond the available data.
