@@ -4,20 +4,25 @@
 TEST_NAMES=(
     pool
     data_buffer
-    # server
+
     # memento
     # observer
-    # perlin_2D
-    # persistant_worker
-    # random_2D_coordinate_generator
     # singleton
     # state_machine
-    # thread
+
     # thread_safe_iostream
+
     # thread_safe_queue
+    # thread
+    # worker_pool
+    # persistant_worker
+
+    # server
+
     # vector_2
     # vector_3
-    # worker_pool
+    # random_2D_coordinate_generator
+    # perlin_2D
 )
 
 # Iterate over each TESTNAME
