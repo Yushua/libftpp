@@ -21,7 +21,7 @@ void Client::send(const Message& message) {
 void Client::update() {
     if (connected_) {
         Message msg1(3);
-        msg1 << 84; // Example doubled value
+        msg1 << 84;
         if (actions_.find(3) != actions_.end()) {
             actions_[3](msg1);
         }

@@ -11,15 +11,11 @@ TEST_NAMES=(
     # state_machine
 
     # thread_safe_iostream
-
+    message
     # thread_safe_queue
     # thread
     # worker_pool
     # persistant_worker
-
-    # message
-    client
-    # server
 
 
     # vector_2

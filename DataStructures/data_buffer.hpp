@@ -42,14 +42,8 @@ public:
         readPos += sizeof(T);
         return *this;
     }
-
-    // Specialized method to deserialize a string from the buffer
     DataBuffer& operator>>(std::string& str);
-
-    // Clears the buffer and resets the read position
     void clear();
-
-    // Returns the size of the buffer
     size_t size() const;
 };
 

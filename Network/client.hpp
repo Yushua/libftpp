@@ -20,4 +20,4 @@ private:
     bool connected_ = false;
 };
 
-#endif // CLIENT_HPP
+#endif

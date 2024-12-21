@@ -7,28 +7,28 @@ class Message {
 public:
     using Type = int;
 
-    Message(Type type) : type_(type) {}
-    Message() : type_(0) {}
+    Message(Type type) : _type(type) {}
+    Message() : _type(0) {}
 
     Type type() const {
-        return type_;
+        return _type;
     }
 
     template<typename T>
     Message& operator<<(const T& data) {
-        buffer_ << data << " ";
+        _buffer << data << " ";
         return *this;
     }
 
     template<typename T>
     const Message& operator>>(T& data) const {
-        buffer_ >> data;
+        _buffer >> data;
         return *this;
     }
 
 private:
-    Type type_;
-    mutable std::stringstream buffer_;
+    Type _type;
+    mutable std::stringstream _buffer;
 };
 
 #endif
