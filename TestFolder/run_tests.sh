@@ -8,9 +8,9 @@ TEST_NAMES=(
     # memento
     # observer
     # singleton
-    state_machine
+    # state_machine
 
-    # thread_safe_iostream
+    thread_safe_iostream
 
     # thread_safe_queue
     # thread

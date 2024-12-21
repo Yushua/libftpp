@@ -1,23 +1,19 @@
-# Root Makefile
-
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror
 LIB_NAME = libftpp.a
 
-# Source files and object files
-SRCS = \
-    # DataStructures/data_buffer.cpp \
-    # DataStructures/pool.cpp
+# Add all your source files here
+SRCS = IOStream/thread_safe_iostream.cpp  # Add more .cpp files if necessary
 OBJS = $(SRCS:%.cpp=%.o)
 
 # Include directories
-INC_DIRS = -I./includes
-			-I./DataStructures
-			-I./DesignPatterns
-			-I./IOStream
-			-I./Thread
-			-I./Network
-			-I./Mathematics
+INC_DIRS = -I./includes \
+           -I./DataStructures \
+           -I./DesignPatterns \
+           -I./IOStream \
+           -I./Thread \
+           -I./Network \
+           -I./Mathematics
 
 # Default target to build the static library
 all: $(LIB_NAME)
