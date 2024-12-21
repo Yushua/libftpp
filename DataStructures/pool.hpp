@@ -4,7 +4,15 @@
 #include <vector>
 #include <memory>
 #include <stdexcept>
+#include <utility>
 
+/**
+    Manages a collection of reusable templated TType objects,
+    provided to the user via a Pool::Object class. This class
+    handles the acquirable pointer, and releases it back to the pool
+    when needed, calling the destructor of the TType object but
+    without deallocating the memory.
+ */
 template <typename TType>
 class Pool {
 public:
@@ -68,6 +76,9 @@ public:
 
     Pool() = default;
 
+    /**
+         Allocates a certain number of TType objects withing the Pool.
+     */
     void resize(const size_t& numberOfObjects) {
         m_objects.clear();
         m_availableObjects.clear();
@@ -77,6 +88,11 @@ public:
         }
     }
 
+    /**
+        Creates a Pool::Object containing
+        a pre-allocated object, using the constructor with parameters
+        as defined by TArgs definition.
+    */
     template <typename... TArgs>
     Object acquire(TArgs&&... args) {
         if (m_availableObjects.empty()) {
@@ -92,13 +108,17 @@ public:
     }
 
 private:
+    /**
+        Returns the pointer stored withing
+        the Pool::Object.
+    */
     void releaseObject(TType* obj) {
-        obj->~TType(); 
+        obj->~TType();
         m_availableObjects.push_back(obj);
     }
 
-    std::vector<std::unique_ptr<TType>> m_objects;     
-    std::vector<TType*> m_availableObjects;      
+    std::vector<std::unique_ptr<TType>> m_objects;
+    std::vector<TType*> m_availableObjects;
 };
 
-#endif
+#endif // POOL_HPP

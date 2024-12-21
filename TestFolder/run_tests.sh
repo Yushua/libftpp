@@ -7,8 +7,8 @@ TEST_NAMES=(
 
     # memento
     # observer
-    singleton
-    # state_machine
+    # singleton
+    state_machine
 
     # thread_safe_iostream
 
