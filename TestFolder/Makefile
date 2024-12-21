@@ -6,7 +6,13 @@ LIB_DIR = ../
 LIB_NAME = libftpp.a
 
 # Include directories
-INC_DIRS = -I../includes -I../DataStructures
+INC_DIRS = -I../includes \
+           -I../DataStructures \
+           -I../DesignPatterns \
+           -I../IOStream \
+           -I../Thread \
+           -I../Network \
+           -I../Mathematics
 
 # TESTNAME is set dynamically or defaults to 'pool'
 TESTNAME ?= pool

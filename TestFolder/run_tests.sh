@@ -10,14 +10,17 @@ TEST_NAMES=(
     # singleton
     # state_machine
 
-    thread_safe_iostream
+    # thread_safe_iostream
 
     # thread_safe_queue
     # thread
     # worker_pool
     # persistant_worker
 
+    # message
+    client
     # server
+
 
     # vector_2
     # vector_3
