@@ -39,4 +39,4 @@ protected:
     virtual void _loadFromSnapshot(Snapshot& snapshot) = 0;
 };
 
-#endif // MEMENTO_HPP
+#endif

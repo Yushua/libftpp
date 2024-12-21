@@ -5,9 +5,9 @@ TEST_NAMES=(
     # pool
     # data_buffer
 
-    memento
+    # memento
     # observer
-    # singleton
+    singleton
     # state_machine
 
     # thread_safe_iostream
