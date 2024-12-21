@@ -1,5 +1,6 @@
-#include "../includes/libftpp.hpp" 
+#include "../includes/libftpp.hpp"
 #include <string>
+#include <algorithm>
 
 int main() {
     Server server;
@@ -11,7 +12,7 @@ int main() {
         threadSafeCout << "Received an int " << value << " from client " << clientID << std::endl;
 
         // Send back a message of type 3 with double the value
-        Message replyMsg;
+        Message replyMsg(3);
         replyMsg << (value * 2);
         server.sendTo(replyMsg, clientID);
     });
@@ -33,28 +34,26 @@ int main() {
     // Start the server on port 8080
     server.start(8080);
 
-   	bool quit = false;
+    bool quit = false;
 
-	while (!quit)
-	{
-		client.update();
+    while (!quit) {
+        server.update();  // Corrected from 'client.update()' to 'server.update()'
 
-		threadSafeCout << "Server updated." << std::endl;
-		threadSafeCout << "Available operations :" << std::endl;
-		threadSafeCout << " - [Q]uit : close the program" << std::endl;
-		threadSafeCout << " - Any other input to continue updating the server" << std::endl;
+        threadSafeCout << "Server updated." << std::endl;
+        threadSafeCout << "Available operations :" << std::endl;
+        threadSafeCout << " - [Q]uit : close the program" << std::endl;
+        threadSafeCout << " - Any other input to continue updating the server" << std::endl;
 
-		std::string input;
-		std::getline(std::cin, input);
+        std::string input;
+        std::getline(std::cin, input);
 
-		std::transform(input.begin(), input.end(), input.begin(), 
-		               [](unsigned char c){ return std::tolower(c); });
+        std::transform(input.begin(), input.end(), input.begin(), 
+                       [](unsigned char c){ return std::tolower(c); });
 
-		if (input == "quit" || (input.length() == 1 && input[0] == 'q')) {
-		    quit = true;
-		}
-	}
-	
+        if (input == "quit" || (input.length() == 1 && input[0] == 'q')) {
+            quit = true;
+        }
+    }
+
     return 0;
 }
-
