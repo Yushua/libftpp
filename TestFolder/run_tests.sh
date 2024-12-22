@@ -10,8 +10,7 @@ TEST_NAMES=(
     # singleton
     # state_machine
 
-    # thread_safe_iostream
-    message
+    thread_safe_iostream
     # thread_safe_queue
     # thread
     # worker_pool

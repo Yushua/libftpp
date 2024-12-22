@@ -1,3 +1,4 @@
+# Compiler and flags
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror
 
@@ -11,19 +12,16 @@ INC_DIRS = -I../includes \
            -I../DesignPatterns \
            -I../IOStream \
            -I../Thread \
-           -I../Network \
            -I../Mathematics
 
 # TESTNAME is set dynamically or defaults to 'pool'
 TESTNAME ?= pool
 
-MAINADD = main_
-TESTADDITION = _test
-
-OUT = $(MAINADD)$(TESTNAME)$(TESTADDITION)
+# Output executable name
+OUT = main_$(TESTNAME)_test
 
 # Source and object files depend on TESTNAME
-SRCS = $(MAINADD)$(TESTNAME).cpp
+SRCS = main_$(TESTNAME).cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 # Default target

@@ -10,10 +10,8 @@
 
 class DataBuffer {
 private:
-
-    std::vector<char> buffer;
-
-    size_t readPos = 0;
+    std::vector<char> buffer; // The underlying buffer
+    size_t readPos = 0;       // The position for reading from the buffer
 
 public:
     // Default constructor initializes an empty buffer
@@ -42,8 +40,14 @@ public:
         readPos += sizeof(T);
         return *this;
     }
+
+    // Specialized method to deserialize a string from the buffer
     DataBuffer& operator>>(std::string& str);
+
+    // Clears the buffer
     void clear();
+
+    // Returns the size of the buffer
     size_t size() const;
 };
 

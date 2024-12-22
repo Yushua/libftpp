@@ -1,7 +1,7 @@
-#ifndef DATA_STRUCTURE_HPP
-#define DATA_STRUCTURE_HPP
+#ifndef DATA_STRUCTURES_HPP
+#define DATA_STRUCTURES_HPP
 
-#include "./pool.hpp"
-#include "./data_buffer.hpp"
-#include "./data_buffer.cpp"
+#include "pool.hpp"
+#include "data_buffer.hpp"
+
 #endif

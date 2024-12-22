@@ -1,9 +1,21 @@
+# Compiler and flags
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror
+
+# Library name
 LIB_NAME = libftpp.a
 
-# Add all your source files here
-SRCS = IOStream/thread_safe_iostream.cpp  # Add more .cpp files if necessary
+# Source files
+
+SRCS = \
+		DataStructures/data_buffer.cpp \
+       DesignPatterns/memento.cpp \
+       IOStream/thread_safe_iostream.cpp \
+       Thread/thread.cpp \
+       Thread/worker_pool.cpp \
+       Thread/persistent_worker.cpp \
+
+# Object files
 OBJS = $(SRCS:%.cpp=%.o)
 
 # Include directories
@@ -12,7 +24,6 @@ INC_DIRS = -I./includes \
            -I./DesignPatterns \
            -I./IOStream \
            -I./Thread \
-           -I./Network \
            -I./Mathematics
 
 # Default target to build the static library
