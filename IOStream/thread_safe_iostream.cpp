@@ -10,7 +10,7 @@ thread_local ThreadSafeIOStream threadSafeCout(std::cout);
 // Constructor
 ThreadSafeIOStream::ThreadSafeIOStream(std::ostream& stream) : outStream(stream) {}
 
-// Overload for the manipulator (e.g., endl)
+// Overload for the manipulator
 ThreadSafeIOStream& ThreadSafeIOStream::operator<<(std::ostream& (*manip)(std::ostream&)) {
     std::lock_guard<std::mutex> lock(ioMutex);
     outStream << manip;

@@ -8,12 +8,12 @@ LIB_NAME = libftpp.a
 # Source files
 
 SRCS = \
-		DataStructures/data_buffer.cpp \
-       DesignPatterns/memento.cpp \
-       IOStream/thread_safe_iostream.cpp \
-       Thread/thread.cpp \
-       Thread/worker_pool.cpp \
-       Thread/persistent_worker.cpp \
+		./DataStructures/data_buffer.cpp \
+       ./DesignPatterns/memento.cpp \
+       ./IOStream/thread_safe_iostream.cpp \
+       ./Thread/thread.cpp \
+       ./Thread/worker_pool.cpp \
+       ./Thread/persistent_worker.cpp \
 
 # Object files
 OBJS = $(SRCS:%.cpp=%.o)

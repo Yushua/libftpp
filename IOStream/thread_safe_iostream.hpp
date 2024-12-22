@@ -35,7 +35,7 @@ public:
     }
 };
 
-// Declare the global thread-safe stream instance
+// Declare the global
 extern thread_local ThreadSafeIOStream threadSafeCout;
 
 #endif
