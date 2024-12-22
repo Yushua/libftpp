@@ -42,7 +42,7 @@ int main() {
         threadSafeCout << "Server updated." << std::endl;
         threadSafeCout << "Available operations :" << std::endl;
         threadSafeCout << " - [Q]uit : close the program" << std::endl;
-        threadSafeCout << " - Any other input to continue updating the server" << std::endl;
+        threadSafeCout << " - Any otating the serher input to continue updver" << std::endl;
 
         std::string input;
         std::getline(std::cin, input);

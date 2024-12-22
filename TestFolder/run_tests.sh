@@ -10,7 +10,7 @@ TEST_NAMES=(
     # singleton
     # state_machine
 
-    thread_safe_iostream
+    # thread_safe_iostream
     # thread_safe_queue
     # thread
     # worker_pool
@@ -19,8 +19,8 @@ TEST_NAMES=(
 
     # vector_2
     # vector_3
-    # random_2D_coordinate_generator
-    # perlin_2D
+    random_2D_coordinate_generator
+    perlin_2D
 )
 
 # Iterate over each TESTNAME
