@@ -15,8 +15,10 @@ private:
 public:
     explicit ThreadSafeIOStream(std::ostream& stream = std::cout);
 
-    void setPrefix(const std::string& prefix);
-
+    void setPrefix(const std::string& prefix) {
+        this->threadPrefix = prefix;
+    }
+    
     template<typename T>
     ThreadSafeIOStream& operator<<(const T& data) {
         std::lock_guard<std::mutex> lock(ioMutex);
@@ -35,7 +37,6 @@ public:
     }
 };
 
-// Declare the global
 extern thread_local ThreadSafeIOStream threadSafeCout;
 
 #endif
