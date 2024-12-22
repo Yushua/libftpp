@@ -16,7 +16,6 @@ TEST_NAMES=(
     # worker_pool
     # persistant_worker
 
-
     # vector_2
     # vector_3
     random_2D_coordinate_generator
@@ -25,9 +24,10 @@ TEST_NAMES=(
 
 # Iterate over each TESTNAME
 for TESTNAME in "${TEST_NAMES[@]}"; do
-    echo "Running tests for: $TESTNAME"
-    make TESTNAME=$TESTNAME
-    make TESTNAME=$TESTNAME run
-    echo "Finished tests for: $TESTNAME"
-    echo "---------------------------------"
+    if [[ $TESTNAME != \#* ]]; then
+        echo "Running tests for: $TESTNAME"
+        make TESTNAME=$TESTNAME run_test
+        echo "Finished tests for: $TESTNAME"
+        echo "---------------------------------"
+    fi
 done
