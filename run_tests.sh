@@ -30,7 +30,7 @@ TEST_NAMES=(
     check perlin_2D
 )
 
-# Function to run a test and capture its output
+# Function to run a test and capture its output to a file
 run_and_capture_output() {
     local testname=$1
     local outputfile=$2
@@ -47,19 +47,26 @@ for TESTNAME in "${TEST_NAMES[@]}"; do
 
             echo -e "${YELLOW}Running test twice for: $TESTNAME to compare results${RESET}"
 
+            # Create temporary files for output
+            TMP_FILE1=$(mktemp)
+            TMP_FILE2=$(mktemp)
+
+            echo -e "${YELLOW}test files created${RESET}"
             # Run the test twice and capture the output
-            run_and_capture_output $TESTNAME output_${TESTNAME}_1.txt
-            run_and_capture_output $TESTNAME output_${TESTNAME}_2.txt
+            run_and_capture_output $TESTNAME $TMP_FILE1
+            run_and_capture_output $TESTNAME $TMP_FILE2
 
             # Compare the outputs
-            if diff output_${TESTNAME}_1.txt output_${TESTNAME}_2.txt > /dev/null; then
+            if diff $TMP_FILE1 $TMP_FILE2 > /dev/null; then
                 echo -e "${GREEN}Test $TESTNAME passed: Outputs are identical${RESET}"
             else
                 echo -e "${RED}Test $TESTNAME failed: Outputs differ${RESET}"
+                echo -e "${CYAN}Differences:${RESET}"
+                diff $TMP_FILE1 $TMP_FILE2
             fi
 
-            # Clean up output files
-            rm output_${TESTNAME}_1.txt output_${TESTNAME}_2.txt
+            # Clean up temporary files
+            rm -f $TMP_FILE1 $TMP_FILE2
         else
             echo -e "${CYAN}Running test for: $TESTNAME${RESET}"
             make TESTNAME=$TESTNAME run_test
