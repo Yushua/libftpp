@@ -1,6 +1,7 @@
 #include "perlin_noise_2D.hpp"
 #include <algorithm>
 #include <numeric>
+#include <random>
 
 float PerlinNoise2D::fade(float t) {
     return t * t * t * (t * (t * 6 - 15) + 10);
@@ -18,10 +19,13 @@ float PerlinNoise2D::grad(int hash, float x, float y) {
 }
 
 PerlinNoise2D::PerlinNoise2D() {
-    std::iota(permutation, permutation + 256, 0);
-    std::default_random_engine engine;
-    std::shuffle(permutation, permutation + 256, engine);
-    std::copy(permutation, permutation + 256, permutation + 256);
+    permutation.resize(256);
+    std::iota(permutation.begin(), permutation.end(), 0);
+
+    std::default_random_engine engine(std::random_device{}());
+    std::shuffle(permutation.begin(), permutation.end(), engine);
+
+    permutation.insert(permutation.end(), permutation.begin(), permutation.end());
 }
 
 float PerlinNoise2D::sample(float x, float y) const {
@@ -44,5 +48,5 @@ float PerlinNoise2D::sample(float x, float y) const {
     return lerp(v, lerp(u, grad(permutation[aa], x, y),
                         grad(permutation[ba], x - 1, y)),
                 lerp(u, grad(permutation[ab], x, y - 1),
-                        grad(permutation[bb], x - 1, y - 1)));
+                     grad(permutation[bb], x - 1, y - 1)));
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <utility>
-#include "../includes/libftpp.hpp" 
+#include "../includes/libftpp.hpp"
 
 int main() {
     Random2DCoordinateGenerator randomGenerator;

@@ -2,11 +2,11 @@
 #define PERLIN_NOISE_2D_HPP
 
 #include <cmath>
-#include <random>
+#include <vector>
 
 class PerlinNoise2D {
 private:
-    int permutation[256];
+    std::vector<int> permutation;
 
     static float fade(float t);
     static float lerp(float t, float a, float b);

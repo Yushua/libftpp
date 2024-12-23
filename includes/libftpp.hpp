@@ -11,6 +11,4 @@
 //extra
 #include "../Mathematics/mathematics.hpp"
 
-//bonus
-#include "../Timer/timer.hpp"
 #endif
